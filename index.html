@@ -1,0 +1,197 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Ansible</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" https://liquidat.files.wordpress.com/2014/02/ansible_logo_round.png"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Ansible</h1>
+    <h2> The good, the bad, but mostly the ok parts</h2>
+    <p> Paolo Antinori<br/> Software Engineer</p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Do this if you want to play at the end</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><code>sudo dnf install ansible</code></li>
+<li>setup a  passwordless <code>sshd</code> server</li>
+<li>if you want: <code>docker pull pantinor/centos_sshd</code> # ~75MB</li>
+<li><code>docker run -it -d --name sshd pantinor/centos_sshd</code></li>
+<li>smart config for vi and yaml: <code>echo "autocmd FileType yaml setlocal ai et ts=2 sw=2" &gt;&gt; ~/.vimrc</code></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>What's that?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>configuration management tool AND deployment</li>
+<li>alternatives: Chef, Puppet, Salt, <strong>bash</strong> AND Capistrano, Fabric, <strong>bash</strong></li>
+<li>main differentiator: agentless</li>
+<li>super geeky name (sci-fi)</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The good</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Simple (DSL)</li>
+<li>Tons of libs, just like Camel</li>
+<li>Super popular</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The bad</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>YAML ( and I have fat fingers )</li>
+<li>Debugging might be cumbersome</li>
+<li>the DSL has evolved fast. many old scripts look really odd/unreadable</li>
+<li>RH paid ~100M for the acquisition</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The ok</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>it's <a href="https://twitter.com/rhatdan/status/898149956657324032">"bash on steroids"</a> Cit. Paolo vs. Dan Walsh</li>
+<li>it's just a script library, with some <strong>smart built-in</strong> and a massive library </li>
+<li>it doesn't strictly enforce standardization</li>
+<li>requires only SSH (now this is a marketing lie!)</li>
+<li>support for service discovery (inventories, actually)</li>
+<li>good docs</li>
+<li>Ansible Tower/AWX</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Demo time!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>think what you can use it for</li>
+<li>think what the Fuse team can use it for</li>
+</ul>
+<hr /></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Thanks everyone!</h2>
+    <p></p>
+  </article>
+  <p data-config-contact class="auto-fadein"></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
