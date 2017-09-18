@@ -56,10 +56,11 @@ title: The ok
 
 ---
 
-title: Demo time!
+title: Homeworks:
 
 - think what you can use it for
 - think what the Fuse team can use it for
+- think if we can ship Ansible scripts with our products
 
 
 ---
